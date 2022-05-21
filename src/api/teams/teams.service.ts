@@ -22,7 +22,7 @@ export const getTeamById = async (id: ITeam['id']) => {
  */
 export const insertTeam = async (team: ITeam[]) => {
   let result: any;
-  team.forEach(async (t) => {
+  team.forEach(async (t) => { 
     result = await execute<{ affectedRows: number }>(TeamQueries.AddTeam, [
       t.name,
       t.league,
