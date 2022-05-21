@@ -3,7 +3,7 @@ import { Request } from 'express';
 export interface ITeam {
   id: number;
   name: string;
-  league: string;
+  league: string; 
   isActive: boolean;
 };
 
