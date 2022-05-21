@@ -20,11 +20,14 @@ export const getTeamById = async (id: ITeam['id']) => {
 /**
  * adds a new active team record
  */
-export const insertTeam = async (team: ITeam) => {
-  const result = await execute<{ affectedRows: number }>(TeamQueries.AddTeam, [
-    team.name,
-    team.league
-  ]);
+ export const insertTeam = async (team: ITeam[]) => {
+  let result: any;
+  for(var key in team){
+     result = await execute<{ affectedRows: number }>(TeamQueries.AddTeam, [
+       team[key].name,
+       team[key].league
+     ]);
+  }
   return result.affectedRows > 0;
 };
 
